@@ -1,7 +1,8 @@
-# omp-ustc Homebrew Tap
+# homebrew-omp-ustc Homebrew Tap
 
-Homebrew tap for [yorha2B0826/oh-my-pi](https://github.com/yorha2B0826/oh-my-pi),
-a personal fork of [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi).
+Homebrew tap (`yorha2b0826/omp-ustc`) for
+[yorha2B0826/oh-my-pi](https://github.com/yorha2B0826/oh-my-pi), a personal fork
+of [can1357/oh-my-pi](https://github.com/can1357/oh-my-pi).
 
 ## Install
 
@@ -13,15 +14,19 @@ brew install omp
 ## Updating the formula
 
 This tap repackages the per-platform bare binaries published in the fork's GitHub
-releases. The upstream project ships a generator
-(`scripts/ci-update-brew-formula.ts`); run it with the fork pointed at
-`yorha2B0826/oh-my-pi` to regenerate `Formula/omp.rb` from a release tag:
+releases. `Formula/omp.rb` currently ships three platforms (darwin-arm64,
+linux-arm64, linux-x64); macOS Intel is omitted because the fork does not publish
+an `omp-darwin-x64` asset (GitHub retired the `macos-13` Intel runner).
+
+To regenerate the formula from a release tag, use the fork's generator
+(`scripts/ci-update-brew-formula.ts`):
 
 ```bash
 OMP_REPO=yorha2B0826/oh-my-pi \
   bun scripts/ci-update-brew-formula.ts v<version> --out Formula/omp.rb
 ```
 
-> Note: the checked-in formula uses `REPLACE_WITH_SHA256` placeholders until the
-> first release is published from the fork. Publish a release, then regenerate
-> with the script above (or fill in the four sha256 digests manually).
+> Note: that generator expects all four upstream targets and would fail on the
+> missing `omp-darwin-x64`; for the fork, fill the sha256 digests manually from
+> the release metadata (`gh release view v<version> --repo yorha2B0826/oh-my-pi
+> --json assets`).
