@@ -1,14 +1,14 @@
 class Omp < Formula
   desc "Coding agent with the IDE wired in"
   homepage "https://omp.sh"
-  version "18.0.5"
+  version "18.0.6"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/yorha2B0826/oh-my-pi/releases/download/v#{version}/omp-darwin-arm64",
           using: :nounzip
-      sha256 "19dadd289ad473975129e3362fb5b0aef103113df177f6f0f4f6c2749083d6bf"
+      sha256 "73a92edcb2fe656e2927c3a46ac46e9a58f708f64c89ca255863c178a73248c6"
     end
   end
 
@@ -16,12 +16,12 @@ class Omp < Formula
     on_arm do
       url "https://github.com/yorha2B0826/oh-my-pi/releases/download/v#{version}/omp-linux-arm64",
           using: :nounzip
-      sha256 "5eb068935ed91f3251556fb275aef48366ea7f25ea5d6d10021037d8a1d9480b"
+      sha256 "8382211a2c1dd0b32cd910bd84a3aad7379c86d57a17505d1070fd4ed832d89d"
     end
     on_intel do
       url "https://github.com/yorha2B0826/oh-my-pi/releases/download/v#{version}/omp-linux-x64",
           using: :nounzip
-      sha256 "f54834da025f4d92a694cb7c6b03a637fae1d292d60bcb52179bbb3863e2540a"
+      sha256 "43e940a28c601b9c1676e7e4edd9c7875473aec979afd3311ac5c463eb3ae001"
     end
   end
 
